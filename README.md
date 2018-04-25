@@ -31,7 +31,7 @@ The program can run on an updated/different dataset and does not restrict the nu
 
 **Calculation Formula:**
 
-a. No Flags are set: Use all collected measures: Visits, unique visits, and pages/visit. 
+**a) No Flags are set: Use all collected measures: Visits, unique visits, and pages/visit.**
 
 The formula used in this calculation:
 
@@ -66,32 +66,124 @@ Percentage of Not Archivable Web Traffic is:  63.14 %
 
 ```
 
-b. Flag -u is set: Only use unique visits
+**b) Flag -u is set: Only use unique visits**
 
 **Demo:**
 
 Usage:
 
 ```
-$ python arch.py <data_file>
+$ python arch.py -u <data_file>
 ```
 e.g.,
 
 ```
-$ python arch.py data.csv
+$ python arch.py -u data.csv
 ```
 Example:
 
 ```
-$ python arch.py data.csv
+$ python arch.py -u data.csv
 Results:
-Percentage of Archivable Web Traffic is:  36.86 %
-Percentage of Not Archivable Web Traffic is:  63.14 %
+Percentage of Archivable Web Traffic is:  61.85 %
+Percentage of Not Archivable Web Traffic is:  38.15 %
 
 ```
 
-# -v: Only use visits
-# -u -v: Use unique visits and visits
-# -u -p: Use unique visits and pages/visit
-# -v -p: Use visits and pages/visit
+**c) Flag -v is set: Only use visits**
+
+**Demo:**
+
+Usage:
+
+```
+$ python arch.py -v <data_file>
+```
+e.g.,
+
+```
+$ python arch.py -v data.csv
+```
+Example:
+
+```
+$ python arch.py -v data.csv
+Results:
+Percentage of Archivable Web Traffic is:  39.6 %
+Percentage of Not Archivable Web Traffic is:  60.4 %
+
+```
+**d) Flags -u and -v are set: Use unique visits and total visits**
+
+**Demo:**
+
+Usage:
+
+```
+$ python arch.py -u -v <data_file>
+```
+e.g.,
+
+```
+$ python arch.py -u -v data.csv
+```
+Example:
+
+```
+$ python arch.py -u -v data.csv
+Results:
+Percentage of Archivable Web Traffic is:  41.81 %
+Percentage of Not Archivable Web Traffic is:  58.19 %
+
+```
+**e) Flags -u and -p are set: Use unique visits with average pages/visit**
+
+The program multiplies both numbers to get the total pages viewed by unique visitors
+
+**Demo:**
+
+Usage:
+
+```
+$ python arch.py -u -p <data_file>
+```
+e.g.,
+
+```
+$ python arch.py -u -p data.csv
+```
+Example:
+
+```
+$ python arch.py -u -p data.csv
+Results:
+Percentage of Archivable Web Traffic is:  56.0 %
+Percentage of Not Archivable Web Traffic is:  44.0 %
+
+```
+**f) Flags -v and -p are set: Use visits with average pages/visit**
+
+The program multiplies both numbers to get the total pages viewed by visitors
+
+**Demo:**
+
+Usage:
+
+```
+$ python arch.py -v -p <data_file>
+```
+e.g.,
+
+```
+$ python arch.py -v -p data.csv
+```
+Example:
+
+```
+$ python arch.py -v -p data.csv
+Results:
+Percentage of Archivable Web Traffic is:  36.53 %
+Percentage of Not Archivable Web Traffic is:  63.47 %
+
+```
 
