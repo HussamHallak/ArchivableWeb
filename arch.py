@@ -36,12 +36,28 @@ def visCntVP(row):
 
 
 if len(sys.argv) < 2:
-    print ("Usage: python arch.py -<flag> -<another_flag> <data_file>")
-    print ("e.g., python arch.py -u -v data.csv")
+    print ("Usage: python arch.py --input <flag> <another_flag> <data_file>")
+    print ("e.g., python arch.py --input u v data.csv")
     exit()
 
 archivable = 0
 notarchivable = 0
+
+archivableU = 0
+notarchivableU = 0
+
+archivableV = 0
+notarchivableV = 0
+
+archivableUV = 0
+notarchivableUV = 0
+
+archivableUP = 0
+notarchivableUP = 0
+
+archivableVP = 0
+notarchivableVP = 0
+
 filename = sys.argv[-1]
 with open(filename, newline='') as f:
     reader = csv.reader(f)
@@ -49,52 +65,129 @@ with open(filename, newline='') as f:
     try:
         for row in reader:
 
-            if("-u" not in sys.argv and "-v" not in sys.argv and "-p" not in sys.argv):
+            if("--input" not in sys.argv and "u" not in sys.argv and "v" not in sys.argv and "p" not in sys.argv):
                 if (row[2] == "1"):
                     archivable += visCnt(row)
+                    archivableU += visCntU(row)
+                    archivableV += visCntV(row)
+                    archivableUV += visCntUV(row)
+                    archivableUP += visCntUP(row)
+                    archivableVP += visCntVP(row)
                 if(row[2] == "0"):
                     notarchivable += visCnt(row)
+                    notarchivableU += visCntU(row)
+                    notarchivableV += visCntV(row)
+                    notarchivableUV += visCntUV(row)
+                    notarchivableUP += visCntUP(row)
+                    notarchivableVP += visCntVP(row)
 
-            if ("-u" in sys.argv and "-v" not in sys.argv and "-p" not in sys.argv):
+            if ("--input" in sys.argv and "u" in sys.argv and "v" not in sys.argv and "p" not in sys.argv):
                 if (row[2] == "1"):
-                    archivable += visCntU(row)
+                    archivableU += visCntU(row)
                 if (row[2] == "0"):
-                    notarchivable += visCntU(row)
+                    notarchivableU += visCntU(row)
 
-            if ("-u" not in sys.argv and "-v" in sys.argv and "-p" not in sys.argv):
+            if ("--input" in sys.argv and "u" not in sys.argv and "v" in sys.argv and "p" not in sys.argv):
                 if (row[2] == "1"):
-                    archivable += visCntV(row)
+                    archivableV += visCntV(row)
                 if (row[2] == "0"):
-                    notarchivable += visCntV(row)
+                    notarchivableV += visCntV(row)
 
-            if ("-u" in sys.argv and "-v" in sys.argv and "-p" not in sys.argv):
+            if ("--input" in sys.argv and "u" in sys.argv and "v" in sys.argv and "p" not in sys.argv):
                 if (row[2] == "1"):
-                    archivable += visCntUV(row)
+                    archivableUV += visCntUV(row)
                 if (row[2] == "0"):
-                    notarchivable += visCntUV(row)
+                    notarchivableUV += visCntUV(row)
 
-            if ("-u" in sys.argv and "-v" not in sys.argv and "-p" in sys.argv):
+            if ("--input" in sys.argv and "u" in sys.argv and "v" not in sys.argv and "p" in sys.argv):
                 if (row[2] == "1"):
-                    archivable += visCntUP(row)
+                    archivableUP += visCntUP(row)
                 if (row[2] == "0"):
-                    notarchivable += visCntUP(row)
+                    notarchivableUP += visCntUP(row)
 
-            if ("-u" not in sys.argv and "-v" in sys.argv and "-p" in sys.argv):
+            if ("--input" in sys.argv and "u" not in sys.argv and "v" in sys.argv and "p" in sys.argv):
                 if (row[2] == "1"):
-                    archivable += visCntVP(row)
+                    archivableVP += visCntVP(row)
                 if (row[2] == "0"):
-                    notarchivable += visCntVP(row)
+                    notarchivableVP += visCntVP(row)
 
     except csv.Error as e:
         sys.exit('file {}, line {}: {}'.format(filename, reader.line_num, e))
 
-total = archivable + notarchivable
-archp = (archivable * 100)/total
-notarchp = (notarchivable * 100)/total
+if (archivable != 0 or  notarchivable !=0):
+    total = archivable + notarchivable
+    archp = (archivable * 100)/total
+    notarchp = (notarchivable * 100)/total
+    archp = round(archp,2)
+    notarchp = round(notarchp,2)
+    print ("*************************************************************************************")
+    print ("Results based on all measures:")
+    print ("-------------------------------------------------------------------------------------")
+    print ("Percentage of Archivable Web Traffic based on all measures is: ", archp, "%")
+    print ("Percentage of Not Archivable Web Traffic based on all measures is: ", notarchp, "%")
+    print ("*************************************************************************************")
 
-archp = round(archp,2)
-notarchp = round(notarchp,2)
+if (archivableU != 0 or  notarchivableU !=0):
+    totalU = archivableU + notarchivableU
+    archpU = (archivableU * 100)/totalU
+    notarchpU = (notarchivableU * 100)/totalU
+    archpU = round(archpU,2)
+    notarchpU = round(notarchpU,2)
+    print ("*************************************************************************************")
+    print ("Results based on unique visits:")
+    print ("-------------------------------------------------------------------------------------")
+    print ("Percentage of Archivable Web Traffic based on unique visits is: ", archpU, "%")
+    print ("Percentage of Not Archivable Web Traffic based on unique visits is: ", notarchpU, "%")
+    print ("*************************************************************************************")
 
-print ("Results:")
-print ("Percentage of Archivable Web Traffic is: ", archp, "%")
-print ("Percentage of Not Archivable Web Traffic is: ", notarchp, "%")
+if (archivableV != 0 or  notarchivableV !=0):
+    totalV = archivableV + notarchivableV
+    archpV = (archivableV * 100)/totalV
+    notarchpV = (notarchivableV * 100)/totalV
+    archpV = round(archpV,2)
+    notarchpV = round(notarchpV,2)
+    print ("*************************************************************************************")
+    print ("Results based on total visits:")
+    print ("-------------------------------------------------------------------------------------")
+    print ("Percentage of Archivable Web Traffic based on total visits is: ", archpV, "%")
+    print ("Percentage of Not Archivable Web Traffic based on total visits is: ", notarchpV, "%")
+    print ("*************************************************************************************")
+
+if (archivableUV != 0 or  notarchivableUV !=0):
+    totalUV = archivableUV + notarchivableUV
+    archpUV = (archivableUV * 100)/totalUV
+    notarchpUV = (notarchivableUV * 100)/totalUV
+    archpUV = round(archpUV,2)
+    notarchpUV = round(notarchpUV,2)
+    print ("*************************************************************************************")
+    print ("Results based on unique and total visits:")
+    print ("-------------------------------------------------------------------------------------")
+    print ("Percentage of Archivable Web Traffic based on unique and total visits is: ", archpUV, "%")
+    print ("Percentage of Not Archivable Web Traffic based on unique and total visits is: ", notarchpUV, "%")
+    print ("*************************************************************************************")
+
+if (archivableUP != 0 or  notarchivableUP !=0):
+    totalUP = archivableUP + notarchivableUP
+    archpUP = (archivableUP * 100)/totalUP
+    notarchpUP = (notarchivableUP * 100)/totalUP
+    archpUP = round(archpUP,2)
+    notarchpUP = round(notarchpUP,2)
+    print ("*************************************************************************************")
+    print ("Results based on unique visits and pages/visit:")
+    print ("-------------------------------------------------------------------------------------")
+    print ("Percentage of Archivable Web Traffic  based on unique visits and pages/visit is: ", archpUP, "%")
+    print ("Percentage of Not Archivable Web Traffic  based on unique visits and pages/visit is: ", notarchpUP, "%")
+    print ("*************************************************************************************")
+
+if (archivableVP != 0 or  notarchivableVP !=0):
+    totalVP = archivableVP + notarchivableVP
+    archpVP = (archivableVP * 100)/totalVP
+    notarchpVP = (notarchivableVP * 100)/totalVP
+    archpVP = round(archpVP,2)
+    notarchpVP = round(notarchpVP,2)
+    print ("*************************************************************************************")
+    print ("Results based on total visits and pages/visit:")
+    print ("-------------------------------------------------------------------------------------")
+    print ("Percentage of Archivable Web Traffic  based on unique visits and pages/visit is: ", archpVP, "%")
+    print ("Percentage of Not Archivable Web Traffic  based on unique visits and pages/visit is: ", notarchpVP, "%")
+    print ("*************************************************************************************")
