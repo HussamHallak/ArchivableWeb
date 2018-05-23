@@ -93,8 +93,8 @@ Percentage of Not Archivable Web Traffic  based on unique visits and pages/visit
 *************************************************************************************
 Results based on total visits and pages/visit:
 -------------------------------------------------------------------------------------
-Percentage of Archivable Web Traffic  based on unique visits and pages/visit is:  36.53 %
-Percentage of Not Archivable Web Traffic  based on unique visits and pages/visit is:  63.47 %
+Percentage of Archivable Web Traffic  based on total visits and pages/visit is:  36.53 %
+Percentage of Not Archivable Web Traffic  based on total visits and pages/visit is:  63.47 %
 *************************************************************************************
 
 ```
@@ -225,7 +225,7 @@ $ python arch.py --input v p data.csv
 *************************************************************************************
 Results based on total visits and pages/visit:
 -------------------------------------------------------------------------------------
-Percentage of Archivable Web Traffic  based on unique visits and pages/visit is:  36.53 %
-Percentage of Not Archivable Web Traffic  based on unique visits and pages/visit is:  63.47 %
+Percentage of Archivable Web Traffic  based on total visits and pages/visit is:  36.53 %
+Percentage of Not Archivable Web Traffic  based on total visits and pages/visit is:  63.47 %
 *************************************************************************************
 ```
