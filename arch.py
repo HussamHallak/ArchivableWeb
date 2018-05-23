@@ -188,6 +188,6 @@ if (archivableVP != 0 or  notarchivableVP !=0):
     print ("*************************************************************************************")
     print ("Results based on total visits and pages/visit:")
     print ("-------------------------------------------------------------------------------------")
-    print ("Percentage of Archivable Web Traffic  based on unique visits and pages/visit is: ", archpVP, "%")
-    print ("Percentage of Not Archivable Web Traffic  based on unique visits and pages/visit is: ", notarchpVP, "%")
+    print ("Percentage of Archivable Web Traffic  based on total visits and pages/visit is: ", archpVP, "%")
+    print ("Percentage of Not Archivable Web Traffic  based on total visits and pages/visit is: ", notarchpVP, "%")
     print ("*************************************************************************************")
