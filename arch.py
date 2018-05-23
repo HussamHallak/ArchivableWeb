@@ -7,29 +7,29 @@ def visCnt(row):
     total = all_visits + unique_visits
     return total
 
-# -u: Only use unique visits
+# --input u: Only use unique visits
 def visCntU(row):
     unique_visits = (float(row[4]) + float(row[7]))/2
     return unique_visits
 
-# -v: Only use visits
+# --input v: Only use visits
 def visCntV(row):
     visits = (float(row[3]) + float(row[6]))/2
     return visits
 
-# -u -v: Use unique visits and visits
+# --input u v: Use unique visits and visits
 def visCntUV(row):
     visits = (float(row[3]) + float(row[6])) / 2
     unique_visits = (float(row[4]) + float(row[7]))/2
     total = visits + unique_visits
     return total
 
-# -u -p: Use unique visits and pages/visit
+# --input u p: Use unique visits and pages/visit
 def visCntUP(row):
     unique_visits = (float(row[4]) * float(row[5]) + float(row[7]) * float(row[8]))/2
     return unique_visits
 
-# -v -p: Use visits and pages/visit
+# --input v p: Use visits and pages/visit
 def visCntVP(row):
     visits = (float(row[3]) * float(row[5]) + float(row[6]) * float(row[8]))/2
     return visits
