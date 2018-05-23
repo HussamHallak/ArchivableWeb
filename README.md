@@ -31,7 +31,7 @@ The program can run on an updated/different dataset and does not restrict the nu
 
 **Calculation Formula:**
 
-**a) No Flags are set: Use all collected measures: Visits, unique visits, and pages/visit.**
+**a) No Flags are set: Show the results using all collected measures: Visits, unique visits, and pages/visit.**
 
 The formula used in this calculation:
 
@@ -60,83 +60,122 @@ Example:
 
 ```
 $ python arch.py data.csv
-Results:
-Percentage of Archivable Web Traffic is:  36.86 %
-Percentage of Not Archivable Web Traffic is:  63.14 %
+*************************************************************************************
+Results based on all measures:
+-------------------------------------------------------------------------------------
+Percentage of Archivable Web Traffic based on all measures is:  36.86 %
+Percentage of Not Archivable Web Traffic based on all measures is:  63.14 %
+*************************************************************************************
+*************************************************************************************
+Results based on unique visits:
+-------------------------------------------------------------------------------------
+Percentage of Archivable Web Traffic based on unique visits is:  61.85 %
+Percentage of Not Archivable Web Traffic based on unique visits is:  38.15 %
+*************************************************************************************
+*************************************************************************************
+Results based on total visits:
+-------------------------------------------------------------------------------------
+Percentage of Archivable Web Traffic based on total visits is:  39.6 %
+Percentage of Not Archivable Web Traffic based on total visits is:  60.4 %
+*************************************************************************************
+*************************************************************************************
+Results based on unique and total visits:
+-------------------------------------------------------------------------------------
+Percentage of Archivable Web Traffic based on unique and total visits is:  41.81 %
+Percentage of Not Archivable Web Traffic based on unique and total visits is:  58.19 %
+*************************************************************************************
+*************************************************************************************
+Results based on unique visits and pages/visit:
+-------------------------------------------------------------------------------------
+Percentage of Archivable Web Traffic  based on unique visits and pages/visit is:  56.0 %
+Percentage of Not Archivable Web Traffic  based on unique visits and pages/visit is:  44.0 %
+*************************************************************************************
+*************************************************************************************
+Results based on total visits and pages/visit:
+-------------------------------------------------------------------------------------
+Percentage of Archivable Web Traffic  based on unique visits and pages/visit is:  36.53 %
+Percentage of Not Archivable Web Traffic  based on unique visits and pages/visit is:  63.47 %
+*************************************************************************************
 
 ```
 
-**b) Flag -u is set: Only use unique visits**
+**b) Flag u is set: Only use unique visits**
 
 **Demo:**
 
 Usage:
 
 ```
-$ python arch.py -u <data_file>
+$ python arch.py --input u <data_file>
 ```
 e.g.,
 
 ```
-$ python arch.py -u data.csv
+$ python arch.py --input u data.csv
 ```
 Example:
 
 ```
-$ python arch.py -u data.csv
-Results:
-Percentage of Archivable Web Traffic is:  61.85 %
-Percentage of Not Archivable Web Traffic is:  38.15 %
-
+$ python arch.py --input u data.csv
+*************************************************************************************
+Results based on unique visits:
+-------------------------------------------------------------------------------------
+Percentage of Archivable Web Traffic based on unique visits is:  61.85 %
+Percentage of Not Archivable Web Traffic based on unique visits is:  38.15 %
+*************************************************************************************
 ```
 
-**c) Flag -v is set: Only use visits**
+**c) Flag v is set: Only use visits**
 
 **Demo:**
 
 Usage:
 
 ```
-$ python arch.py -v <data_file>
+$ python arch.py --input v <data_file>
 ```
 e.g.,
 
 ```
-$ python arch.py -v data.csv
+$ python arch.py --input v data.csv
 ```
 Example:
 
 ```
-$ python arch.py -v data.csv
-Results:
-Percentage of Archivable Web Traffic is:  39.6 %
-Percentage of Not Archivable Web Traffic is:  60.4 %
-
+$ python arch.py --input v data.csv
+*************************************************************************************
+Results based on total visits:
+-------------------------------------------------------------------------------------
+Percentage of Archivable Web Traffic based on total visits is:  39.6 %
+Percentage of Not Archivable Web Traffic based on total visits is:  60.4 %
+*************************************************************************************
 ```
-**d) Flags -u and -v are set: Use unique visits and total visits**
+**d) Flags u and v are set: Use unique visits and total visits**
 
 **Demo:**
 
 Usage:
 
 ```
-$ python arch.py -u -v <data_file>
+$ python arch.py --input u v <data_file>
 ```
 e.g.,
 
 ```
-$ python arch.py -u -v data.csv
+$ python arch.py --input u v data.csv
 ```
 Example:
 
 ```
-$ python arch.py -u -v data.csv
-Results:
-Percentage of Archivable Web Traffic is:  41.81 %
-Percentage of Not Archivable Web Traffic is:  58.19 %
-
+$ python arch.py --input u v data.csv
+*************************************************************************************
+Results based on unique and total visits:
+-------------------------------------------------------------------------------------
+Percentage of Archivable Web Traffic based on unique and total visits is:  41.81 %
+Percentage of Not Archivable Web Traffic based on unique and total visits is:  58.19 %
+*************************************************************************************
 ```
-**e) Flags -u and -p are set: Use unique visits with average pages/visit**
+**e) Flags u and p are set: Use unique visits with average pages/visit**
 
 The program multiplies both numbers to get the total pages viewed by unique visitors
 
@@ -145,21 +184,23 @@ The program multiplies both numbers to get the total pages viewed by unique visi
 Usage:
 
 ```
-$ python arch.py -u -p <data_file>
+$ python arch.py --input u p <data_file>
 ```
 e.g.,
 
 ```
-$ python arch.py -u -p data.csv
+$ python arch.py --input u p data.csv
 ```
 Example:
 
 ```
-$ python arch.py -u -p data.csv
-Results:
-Percentage of Archivable Web Traffic is:  56.0 %
-Percentage of Not Archivable Web Traffic is:  44.0 %
-
+$ python arch.py --input u p data.csv
+*************************************************************************************
+Results based on unique visits and pages/visit:
+-------------------------------------------------------------------------------------
+Percentage of Archivable Web Traffic  based on unique visits and pages/visit is:  56.0 %
+Percentage of Not Archivable Web Traffic  based on unique visits and pages/visit is:  44.0 %
+*************************************************************************************
 ```
 **f) Flags -v and -p are set: Use visits with average pages/visit**
 
@@ -170,20 +211,21 @@ The program multiplies both numbers to get the total pages viewed by visitors
 Usage:
 
 ```
-$ python arch.py -v -p <data_file>
+$ python arch.py --input v p <data_file>
 ```
 e.g.,
 
 ```
-$ python arch.py -v -p data.csv
+$ python arch.py --input v p data.csv
 ```
 Example:
 
 ```
-$ python arch.py -v -p data.csv
-Results:
-Percentage of Archivable Web Traffic is:  36.53 %
-Percentage of Not Archivable Web Traffic is:  63.47 %
-
+$ python arch.py --input v p data.csv
+*************************************************************************************
+Results based on total visits and pages/visit:
+-------------------------------------------------------------------------------------
+Percentage of Archivable Web Traffic  based on unique visits and pages/visit is:  36.53 %
+Percentage of Not Archivable Web Traffic  based on unique visits and pages/visit is:  63.47 %
+*************************************************************************************
 ```
-
