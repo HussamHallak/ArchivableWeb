@@ -31,9 +31,9 @@ The program can run on an updated/different dataset and does not restrict the nu
 
 **Calculation Formula:**
 
-**a) No Flags are set: Show the results using all collected measures: Visits, unique visits, and pages/visit.**
+**a) No Flags are set: Show the results using all collected measures individually and their combinations: Visits, unique visits, and pages/visit.**
 
-The formula used in this calculation:
+The formula when all measured are used:
 
 1. Multiply the pages/visit by visits for each web site from both [SimilarWeb](https://www.similarweb.com/) and [SemRush](https://www.semrush.com/)
 2. Take the average for both sources, [SimilarWeb](https://www.similarweb.com/) and [SemRush](https://www.semrush.com/)
