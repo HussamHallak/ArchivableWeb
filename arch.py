@@ -120,12 +120,9 @@ if (archivable != 0 or  notarchivable !=0):
     notarchp = (notarchivable * 100)/total
     archp = round(archp,2)
     notarchp = round(notarchp,2)
-    print ("*************************************************************************************")
     print ("Results based on all measures:")
-    print ("-------------------------------------------------------------------------------------")
-    print ("Percentage of Archivable Web Traffic based on all measures is: ", archp, "%")
-    print ("Percentage of Not Archivable Web Traffic based on all measures is: ", notarchp, "%")
-    print ("*************************************************************************************")
+    print ("Percentage of Publicly Archivable Web Traffic based on all measures is: ", archp, "%")
+    print ("Percentage of Not Publicly Archivable Web Traffic based on all measures is: ", notarchp, "%")
 
 if (archivableU != 0 or  notarchivableU !=0):
     totalU = archivableU + notarchivableU
@@ -133,12 +130,9 @@ if (archivableU != 0 or  notarchivableU !=0):
     notarchpU = (notarchivableU * 100)/totalU
     archpU = round(archpU,2)
     notarchpU = round(notarchpU,2)
-    print ("*************************************************************************************")
     print ("Results based on unique visits:")
-    print ("-------------------------------------------------------------------------------------")
-    print ("Percentage of Archivable Web Traffic based on unique visits is: ", archpU, "%")
-    print ("Percentage of Not Archivable Web Traffic based on unique visits is: ", notarchpU, "%")
-    print ("*************************************************************************************")
+    print ("Percentage of Publicly Archivable Web Traffic based on unique visits is: ", archpU, "%")
+    print ("Percentage of Not Publicly Archivable Web Traffic based on unique visits is: ", notarchpU, "%")
 
 if (archivableV != 0 or  notarchivableV !=0):
     totalV = archivableV + notarchivableV
@@ -146,12 +140,9 @@ if (archivableV != 0 or  notarchivableV !=0):
     notarchpV = (notarchivableV * 100)/totalV
     archpV = round(archpV,2)
     notarchpV = round(notarchpV,2)
-    print ("*************************************************************************************")
     print ("Results based on total visits:")
-    print ("-------------------------------------------------------------------------------------")
-    print ("Percentage of Archivable Web Traffic based on total visits is: ", archpV, "%")
-    print ("Percentage of Not Archivable Web Traffic based on total visits is: ", notarchpV, "%")
-    print ("*************************************************************************************")
+    print ("Percentage of Publicly Archivable Web Traffic based on total visits is: ", archpV, "%")
+    print ("Percentage of Not Publicly Archivable Web Traffic based on total visits is: ", notarchpV, "%")
 
 if (archivableUV != 0 or  notarchivableUV !=0):
     totalUV = archivableUV + notarchivableUV
@@ -159,12 +150,9 @@ if (archivableUV != 0 or  notarchivableUV !=0):
     notarchpUV = (notarchivableUV * 100)/totalUV
     archpUV = round(archpUV,2)
     notarchpUV = round(notarchpUV,2)
-    print ("*************************************************************************************")
     print ("Results based on unique and total visits:")
-    print ("-------------------------------------------------------------------------------------")
-    print ("Percentage of Archivable Web Traffic based on unique and total visits is: ", archpUV, "%")
-    print ("Percentage of Not Archivable Web Traffic based on unique and total visits is: ", notarchpUV, "%")
-    print ("*************************************************************************************")
+    print ("Percentage of Publicly Archivable Web Traffic based on unique and total visits is: ", archpUV, "%")
+    print ("Percentage of Not Publicly Archivable Web Traffic based on unique and total visits is: ", notarchpUV, "%")
 
 if (archivableUP != 0 or  notarchivableUP !=0):
     totalUP = archivableUP + notarchivableUP
@@ -172,12 +160,9 @@ if (archivableUP != 0 or  notarchivableUP !=0):
     notarchpUP = (notarchivableUP * 100)/totalUP
     archpUP = round(archpUP,2)
     notarchpUP = round(notarchpUP,2)
-    print ("*************************************************************************************")
     print ("Results based on unique visits and pages/visit:")
-    print ("-------------------------------------------------------------------------------------")
-    print ("Percentage of Archivable Web Traffic  based on unique visits and pages/visit is: ", archpUP, "%")
-    print ("Percentage of Not Archivable Web Traffic  based on unique visits and pages/visit is: ", notarchpUP, "%")
-    print ("*************************************************************************************")
+    print ("Percentage of Publicly Archivable Web Traffic  based on unique visits and pages/visit is: ", archpUP, "%")
+    print ("Percentage of Not Publicly Archivable Web Traffic  based on unique visits and pages/visit is: ", notarchpUP, "%")
 
 if (archivableVP != 0 or  notarchivableVP !=0):
     totalVP = archivableVP + notarchivableVP
@@ -185,9 +170,6 @@ if (archivableVP != 0 or  notarchivableVP !=0):
     notarchpVP = (notarchivableVP * 100)/totalVP
     archpVP = round(archpVP,2)
     notarchpVP = round(notarchpVP,2)
-    print ("*************************************************************************************")
     print ("Results based on total visits and pages/visit:")
-    print ("-------------------------------------------------------------------------------------")
-    print ("Percentage of Archivable Web Traffic  based on total visits and pages/visit is: ", archpVP, "%")
-    print ("Percentage of Not Archivable Web Traffic  based on total visits and pages/visit is: ", notarchpVP, "%")
-    print ("*************************************************************************************")
+    print ("Percentage of Publicly Archivable Web Traffic  based on total visits and pages/visit is: ", archpVP, "%")
+    print ("Percentage of Not Publicly Archivable Web Traffic  based on total visits and pages/visit is: ", notarchpVP, "%")
